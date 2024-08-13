@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:supabase_login_flutter/pages/account_page.dart';
+import 'package:supabase_login_flutter/pages/login_page.dart';
+import 'package:supabase_login_flutter/pages/splash_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +32,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => SplashPage(),
+        '/login': (context) => LoginPage(),
+        '/account': (context) => AccountPage(),
+      },
     );
   }
 }

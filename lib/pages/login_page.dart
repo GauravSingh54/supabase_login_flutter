@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:supabase_login_flutter/main.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -37,15 +38,24 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('Login',
+            style: GoogleFonts.mPlusRounded1c(
+                color: Colors.white, fontWeight: FontWeight.w700)),
+        centerTitle: true,
+        backgroundColor: Colors.black,
       ),
       body: ListView(
+        padding: EdgeInsets.all(12),
         children: [
           TextFormField(
             controller: _emailController,
             decoration: InputDecoration(
-              label: Text('Email'),
-            ),
+                label: Text('Email'),
+                labelStyle: GoogleFonts.mPlusRounded1c(
+                    color: Colors.black, fontWeight: FontWeight.w500)),
+          ),
+          SizedBox(
+            height: 12,
           ),
           ElevatedButton(
             onPressed: () async {
@@ -68,7 +78,16 @@ class _LoginPageState extends State<LoginPage> {
                 ));
               }
             },
-            child: Text('Login'),
+            child: Text(
+              'Login',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey[900],
+                textStyle: GoogleFonts.mPlusRounded1c(
+                    color: Colors.white, fontWeight: FontWeight.w600)),
           )
         ],
       ),
