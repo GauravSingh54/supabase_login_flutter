@@ -61,7 +61,11 @@ class _LoginPageState extends State<LoginPage> {
             onPressed: () async {
               try {
                 final email = _emailController.text.trim();
-                await supabase.auth.signInWithOtp(email: email);
+                await supabase.auth.signInWithOtp(
+                    email: email,
+                    emailRedirectTo:
+                        'io.supabase.flutterquickstart://login-callback/');
+
                 if (mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Check your inbox')));
