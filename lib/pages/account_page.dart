@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_login_flutter/components/avatar.dart';
 import 'package:supabase_login_flutter/main.dart';
 
 class AccountPage extends StatefulWidget {
@@ -11,6 +12,7 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   final _usernameController = TextEditingController();
   final _websiteController = TextEditingController();
+  String? _imageUrl;
 
   @override
   void initState() {
@@ -44,6 +46,16 @@ class _AccountPageState extends State<AccountPage> {
       body: ListView(
         padding: EdgeInsets.all(12),
         children: [
+          Avatar(
+              imageUrl: _imageUrl,
+              onUpload: (imageUrl) {
+                setState(() {
+                  _imageUrl = imageUrl;
+                });
+              }),
+          SizedBox(
+            height: 12,
+          ),
           TextFormField(
             controller: _usernameController,
             decoration: InputDecoration(
